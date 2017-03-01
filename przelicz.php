@@ -2,15 +2,11 @@
     session_start();
    require_once 'db.php';
    
-   
-   
     $sql = "SELECT * FROM stopy ORDER BY id ASC";
 		
     $result = mysqli_query($db, $sql) or die(mysqli_error());
     
-    
-    
-    mysqli_query($db, $sql);
+     mysqli_query($db, $sql);
    
     
     if(isset($_POST['post'])){

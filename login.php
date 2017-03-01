@@ -1,4 +1,4 @@
-<?
+<?php
 	session_start();
 	
 	if(isset($_POST['login'])){
@@ -19,14 +19,12 @@
 		$row = mysqli_fetch_array($query);
 		$id = $row['id'];
 		$db_password = $row['password'];
-		$admin = $row['admin'];
+		
 		
 		if($password = $db_password){
 			$_SESSION['username'] = $username;
 			$_SESSION['id'] = $id;
-			if($admin ==1){
-				$_SESSION['admin'] = 1;
-			}
+			
 			header("Location: index.php");
 		}else echo "Dupa zbita";
 	}
@@ -37,7 +35,7 @@
 		<title>Logowanie</title>
 	</head>
 	<body>
-		<h1 style="font-family: Tahoma;">Login</h1>
+		<h1>Login</h1>
 		<form action="login.php" method="post" enctype="multipart/form-data">
 			<input placeholder="username" name="username" type="text" autofocus>
 			<input placeholder="password" name="password" type="password">

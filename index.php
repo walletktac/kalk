@@ -1,3 +1,13 @@
+<?
+	session_start();
+	include_once("db.php");
+        
+        if(!isset($_SESSION['username']) && $_SESSION['username'] != 1){
+		header("Location: login.php");
+		return;
+	}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,6 +23,17 @@
 			
 			<input name="post" type="submit" value="Przelicz">
 		</form>
-		
+		<?php
+                
+                
+                        if(!isset($_SESSION['username'])){
+				echo "<a href='login.php'>Zaloguj</a> <br>";
+			}
+			if(!isset($_SESSION['username'])){
+				echo "<a href='logout.php'>Wyloguj</a>";
+			}
+                
+                
+                ?>
 	</body>
 </html>
